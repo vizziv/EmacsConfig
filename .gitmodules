@@ -1,0 +1,3 @@
+[submodule ".emacs.d/usr/ProofGeneral"]
+	path = .emacs.d/usr/ProofGeneral
+	url = https://github.com/ProofGeneral/PG
