@@ -220,8 +220,11 @@
        'proof-goto-point)))
 
 ;; Ur/Web.
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/urweb-mode")
-(load "urweb-mode-startup")
+(let (urweb-mode-dir "/usr/local/share/emacs/site-lisp/urweb-mode")
+  (if (file-readable-p urweb-mode-dir)
+    (progn
+      (add-to-list 'load-path urweb-mode-dir)
+      (load "urweb-mode-startup"))))
 
 ;; Bluespec.
 (autoload 'bsv-mode "bsv-mode" "BSV mode" t )
@@ -270,20 +273,20 @@
 
 ;; OCaml
 ;; Add opam emacs directory to the load-path
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-;; Load merlin-mode
-(require 'merlin)
-;; Start merlin on ocaml files
-(add-hook 'tuareg-mode-hook 'merlin-mode t)
-(add-hook 'caml-mode-hook 'merlin-mode t)
-; Make company aware of merlin
-(with-eval-after-load 'company
- (add-to-list 'company-backends 'merlin-company-backend))
-; Enable company on merlin managed buffers
-(add-hook 'merlin-mode-hook 'company-mode)
-; Or enable it globally:
-; (add-hook 'after-init-hook 'global-company-mode)
+(if (executable-find "opam")
+  (progn
+    (setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
+    (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
+    ;; Load merlin-mode
+    (require 'merlin)
+    ;; Start merlin on ocaml files
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ; Make company aware of merlin
+    (with-eval-after-load 'company
+     (add-to-list 'company-backends 'merlin-company-backend))
+    ; Enable company on merlin managed buffers
+    (add-hook 'merlin-mode-hook 'company-mode)))
 
 ;; Kappa.
 (require 'kappa)
