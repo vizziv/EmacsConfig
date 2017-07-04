@@ -220,7 +220,7 @@
        'proof-goto-point)))
 
 ;; Ur/Web.
-(let (urweb-mode-dir "/usr/local/share/emacs/site-lisp/urweb-mode")
+(let ((urweb-mode-dir "/usr/local/share/emacs/site-lisp/urweb-mode"))
   (if (file-readable-p urweb-mode-dir)
     (progn
       (add-to-list 'load-path urweb-mode-dir)
