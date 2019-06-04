@@ -1,7 +1,7 @@
 ;; Packages.
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
@@ -148,6 +148,34 @@
  '(proof-queue-face ((t (:background "dark magenta"))))
  '(rainbow-delimiters-unmatched-face ((t (:background "#002b36" :foreground "#dc322f" :inverse-video t)))))
 
+;; List of installed packages.
+;; (setq use-package-always-ensure t)
+;; (use-package tex :ensure auctex)
+;; (use-package adaptive-wrap)
+;; (use-package auto-complete)
+;; (use-package column-enforce-mode)
+;; (use-package company)
+;; (use-package exec-path-from-shell)
+;; (use-package haskell-mode)
+;; (use-package htmlize)
+;; (use-package intero)
+;; (use-package magit)
+;; (use-package mark)
+;; (use-package monokai-theme)
+;; (use-package multiple-cursors)
+;; (use-package paredit)
+;; (use-package python-mode)
+;; (use-package rainbow-delimiters)
+;; (use-package revive)
+;; (use-package sml-mode)
+;; (use-package solarized-theme)
+;; (use-package sublime-themes)
+;; (use-package synquid)
+;; (use-package tuareg)
+;; (use-package use-package)
+;; (use-package web-mode)
+;; (use-package zoom-frm)
+
 ;; Put backup files and auto saves in temp.
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -186,37 +214,12 @@
 ;; Turn off the bell.
 (setq ring-bell-function 'ignore)
 
-;; Use same PATH as shell.
-(exec-path-from-shell-initialize)
-
 ;; User files in general
 (add-to-list 'load-path "~/.emacs.d/usr/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/usr/")
 
-;; List of installed packages.
-;; (setq use-package-always-ensure t)
-;; (use-package tex :ensure auctex)
-;; (use-package auto-complete)
-;; (use-package company)
-;; (use-package exec-path-from-shell)
-;; (use-package haskell-mode)
-;; (use-package htmlize)
-;; (use-package intero)
-;; (use-package magit)
-;; (use-package mark)
-;; (use-package monokai-theme)
-;; (use-package multiple-cursors)
-;; (use-package paredit)
-;; (use-package python-mode)
-;; (use-package rainbow-delimiters)
-;; (use-package revive)
-;; (use-package sml-mode)
-;; (use-package solarized-theme)
-;; (use-package sublime-themes)
-;; (use-package synquid)
-;; (use-package tuareg)
-;; (use-package use-package)
-;; (use-package zoom-frm)
+;; Use same PATH as shell.
+(exec-path-from-shell-initialize)
 
 ;; Magit.
 (global-set-key (kbd "C-x g") 'magit-status)
