@@ -90,7 +90,7 @@
  '(org-cycle-separator-lines 1)
  '(package-selected-packages
    (quote
-    (adaptive-wrap column-enforce-mode web-mode magit use-package synquid company tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme mark htmlize haskell-mode exec-path-from-shell auto-complete)))
+    (adaptive-wrap column-enforce-mode web-mode magit use-package synquid company tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme htmlize haskell-mode exec-path-from-shell auto-complete)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(rainbow-delimiters-max-face-count 5)
@@ -160,7 +160,6 @@
 ;; (use-package htmlize)
 ;; (use-package intero)
 ;; (use-package magit)
-;; (use-package mark)
 ;; (use-package monokai-theme)
 ;; (use-package multiple-cursors)
 ;; (use-package paredit)
