@@ -90,7 +90,7 @@
  '(org-cycle-separator-lines 1)
  '(package-selected-packages
    (quote
-    (adaptive-wrap column-enforce-mode web-mode magit use-package synquid company zoom-frm tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme mark htmlize haskell-mode exec-path-from-shell auto-complete)))
+    (adaptive-wrap column-enforce-mode web-mode magit use-package synquid company tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme mark htmlize haskell-mode exec-path-from-shell auto-complete)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(rainbow-delimiters-max-face-count 5)
@@ -174,7 +174,10 @@
 ;; (use-package tuareg)
 ;; (use-package use-package)
 ;; (use-package web-mode)
-;; (use-package zoom-frm)
+
+;; User files in general
+(add-to-list 'load-path "~/.emacs.d/usr/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/usr/")
 
 ;; Put backup files and auto saves in temp.
 (setq backup-directory-alist
@@ -203,6 +206,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-current-line)
 
 ;; Zoom all frames at once.
+(require 'zoom-frm)
 (global-set-key (kbd "C-x C-+") 'zoom-frm-in)
 (global-set-key (kbd "C-x C-=") 'zoom-frm-in)
 (global-set-key (kbd "C-x C--") 'zoom-frm-out)
@@ -213,10 +217,6 @@
 
 ;; Turn off the bell.
 (setq ring-bell-function 'ignore)
-
-;; User files in general
-(add-to-list 'load-path "~/.emacs.d/usr/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/usr/")
 
 ;; Use same PATH as shell.
 (exec-path-from-shell-initialize)
