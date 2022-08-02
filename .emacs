@@ -90,7 +90,7 @@
  '(org-cycle-separator-lines 1)
  '(package-selected-packages
    (quote
-    (adaptive-wrap column-enforce-mode web-mode magit use-package synquid company tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme htmlize haskell-mode exec-path-from-shell auto-complete)))
+    (proof-general adaptive-wrap column-enforce-mode web-mode magit use-package synquid company tuareg sublime-themes solarized-theme sml-mode revive rainbow-delimiters python-mode paredit multiple-cursors monokai-theme htmlize haskell-mode exec-path-from-shell auto-complete)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(rainbow-delimiters-max-face-count 5)
@@ -163,6 +163,7 @@
 ;; (use-package monokai-theme)
 ;; (use-package multiple-cursors)
 ;; (use-package paredit)
+;; (use-package proof-general)
 ;; (use-package python-mode)
 ;; (use-package rainbow-delimiters)
 ;; (use-package revive)
@@ -235,7 +236,6 @@
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; Proof General.
-(load-file "~/.emacs.d/usr/ProofGeneral/generic/proof-site.el")
 (eval-after-load "proof-script"
   '(progn
      (define-key proof-mode-map (kbd "C-c RET")
