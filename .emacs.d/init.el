@@ -158,13 +158,30 @@
          ("C-M-;" . mc/mark-all-like-this)))
 
 ;; Ivy, Counsel, and Swiper
+(defun ivy--regexp-quote-plus (string)
+  "Build a regexp suitable for Ivy from STRING.
+Convert whitespace to \".*\" and `regexp-quote' everything else."
+  (mapconcat #'regexp-quote (split-string string) ".*"))
+
+(defun ivy--regexp-quote-ignore-order (string)
+  "Build a regexp alist suitable for Ivy from STRING.
+Has a similar effect to `my-regexp-quote', except the order of
+whitespace-separated substrings is ignored."
+  (mapcar (lambda (substring)
+            (cons (regexp-quote substring) t))
+          (split-string string)))
+
 (use-package ivy
   :config
-  (ivy-mode))
+  (ivy-mode)
+  (setcdr (assoc t ivy-re-builders-alist) #'ivy--regexp-quote-plus)
+  (add-to-list 'ivy-preferred-re-builders (cons #'ivy--regexp-quote-plus "quote"))
+  (add-to-list 'ivy-preferred-re-builders (cons #'ivy--regexp-quote-ignore-order "quote order")))
 (use-package counsel
   :bind (("C-x C-r" . counsel-recentf))
   :config
-  (counsel-mode))
+  (counsel-mode)
+  (setcdr (assoc 'counsel-M-x ivy-initial-inputs-alist) ""))
 (use-package swiper
   :bind (("C-s" . swiper)
          ("C-r" . swiper)))
